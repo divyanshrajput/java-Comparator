@@ -1,0 +1,62 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+class Student
+    {
+        public String name;
+        public String reg;
+        Student(String name,String reg)
+        {
+            this.name=name;
+            this.reg=reg;
+        }
+    //  @overide
+         public String toString()
+         {//overriding the toString() method  
+              return this.name+" "+this.reg;  
+            }
+          /*public String getName()
+            {
+                return name;
+            }  */
+    }
+    
+    class Person implements Comparator<Student>
+    {
+
+@Override
+public int compare(Student S,Student s2)
+{
+    return Integer.valueOf(S.reg).compareTo(Integer.valueOf(s2.reg));
+}
+}   
+public class HelloWorld{
+    
+   
+
+     public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        Student[] stud = new Student[5];
+        for(int i=0;i<5;i++)
+        {
+     System.out.println("enter the name");
+        String n=sc.next();
+        System.out.println("enter the reg no.");
+      String r=sc.next();
+        
+        
+        stud[i]= new Student(n,r);
+        }
+    //  Arrays.sort(stud);
+        
+     Arrays.sort(stud,new Person());
+        System.out.println("Hello World"+" ");
+        System.out.println(stud[1]);
+        System.out.println("enter 1 2 3");
+        for(Student sdt : stud)
+        {
+            System.out.println(sdt.name+"  " +sdt.reg);
+        }
+    
+        
+     }
